@@ -1,0 +1,240 @@
+/* index.css - Styles specific to index.html */
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  color: #000;
+  box-sizing: border-box;
+  padding: 10px 0;
+  font-weight: bold;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marqueeAnimation 50s linear infinite;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.marquee-text span {
+  padding-right: 100px; /* space between repeated text */
+  display: inline-block;
+}
+
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-text {
+    font-size: 0.9rem;
+  }
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  background: none;
+  text-align: center;
+  padding: 0 1rem;
+  color: #000000;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/banner1.png') center center/cover no-repeat;
+  opacity: 0.8;
+  z-index: -9;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  max-width: 600px;
+}
+
+.hero .btn {
+  background-color: #111;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: background-color 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: #333;
+}
+
+/* Responsive styles for hero and buttons */
+@media (max-width: 768px) {
+  .hero {
+    height: 50vh;
+    padding: 0 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .hero .btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .navbar-collapse {
+    max-height: 100px !important;
+    overflow: hidden !important;
+  }
+
+  .navbar-nav {
+    gap: -0.3rem !important;
+  }
+
+  .nav-item {
+    margin-bottom: -1rem;
+  }
+}
+
+/* Banner grid styling */
+.banner-grid {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.banner-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.banner-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .banner-item img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-item img {
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 40vh;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero .btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Override navbar nav ul to display vertically on small screens */
+.navbar-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem;
+  align-items: flex-start;
+  background-color: #fff !important;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* Override navbar background to pure white */
+.navbar {
+  background-color: #fff !important;
+}
+
+/* On desktop, display nav links in a row aligned right */
+@media (min-width: 769px) {
+  .navbar-nav {
+    flex-direction: row !important;
+    gap: 1.4rem;
+    align-items: center;
+    padding: 0;
+    background-color: transparent !important;
+    border-radius: 0;
+    margin-left: auto !important;
+  }
+
+  .navbar-collapse {
+    flex-grow: 1;
+    display: flex !important;
+    max-height: 60px; /* Adjusted to 60px for better height */
+    overflow: hidden; /* Hide overflow if any */
+  }
+}
+
+/* Banner text buttons black and white */
+.banner-text .btn {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.banner-text .btn:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
