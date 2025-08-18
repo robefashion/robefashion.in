@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robe Fashion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .first {
+      background-image: url(images/bannerport.jpg);
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #f3c614;
+    }
+
+    .first-content {
+      color: white;
+      text-align: left;
+      max-width: 600px;
+      margin-bottom: 100px;
+    }
+
+    .first-content h1 {
+      font-size: 3.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+    }
+
+    .first-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #f3c614;
+      padding: 12px 30px;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #d4aa00;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #f8f9fa;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    .banner-section {
+      padding: 40px 0;
+    }
+
+    .banner-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .banner-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .banner-text h2 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .overlay {
+        padding: 20px 20px;
+      }
+      
+      .first-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .nav-links {
+        gap: 15px;
+      }
+      
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="first">
+    <div class="overlay">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="logo">ROBE</div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#products-section">Collection</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#shop-section">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contactus.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="first-content">
+        <h1>Elevate Your Style</h1>
+        <p>Discover timeless fashion tailored for modern elegance.</p>
+        <a href="#products-section" class="btn">Explore Collection</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Minimalist Clothing for Every Occasion</h1>
+      <p>Discover timeless styles crafted with quality and care.</p>
+      <button class="btn" onclick="window.location.href='#shop-section'">Shop Now</button>
+    </div>
+  </section>
+
+  <!-- Banner Grid Section -->
+  <section id="banner-sections" class="banner-sections my-5">
+    <div class="container">
+      <div class="banner-section row align-items-center my-4">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner2.png" alt="Latest Collection" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Discover Our Latest Collection</h2>
+          <p>Explore the newest trends in minimalist clothing, crafted with quality and care to suit every occasion. Our collection offers timeless styles that blend comfort and elegance seamlessly.</p>
+          <button class="btn btn-primary" onclick="window.location.href='#shop-section'">Shop Now</button>
+        </div>
+      </div>
+
+      <div class="banner-section row align-items-center my-4 flex-md-row-reverse">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner3.png" alt="Quality Materials" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Quality You Can Trust</h2>
+          <p>Our garments are made from premium materials, ensuring durability and comfort. Experience the difference with our carefully curated selection designed to last and impress.</p>
+          <button class="btn btn-primary" onclick="window.location.href='aboutus.html'">Learn More</button>
+        </div>
+      </div>
+
+      <div class="banner-section row align-items-center my-4">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner4.webp" alt="Sustainability" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Style Meets Sustainability</h2>
+          <p>We are committed to sustainable fashion practices, using eco-friendly materials and ethical production methods. Join us in making a positive impact on the environment.</p>
+          <button class="btn btn-primary" onclick="window.location.href='aboutus.html'">Our Commitment</button>
+        </div>
+      </div>
+
+      <div class="banner-section row align-items-center my-4 flex-md-row-reverse">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner5.webp" alt="Exclusive Offers" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Exclusive Offers</h2>
+          <p>Sign up for our newsletter to receive exclusive discounts, early access to new arrivals, and special promotions tailored just for you.</p>
+          <button class="btn btn-primary" onclick="window.location.href='#newsletter'">Subscribe Now</button>
+        </div>
+      </div>
+
+      <div class="banner-section row align-items-center my-4">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner6.webp" alt="Community" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Join Our Community</h2>
+          <p>Connect with like-minded fashion enthusiasts and stay updated on the latest trends, styling tips, and brand news through our social media channels.</p>
+          <button class="btn btn-primary" onclick="window.open('https://www.instagram.com/robefashion.in/', '_blank')">Follow Us</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products-section" class="products py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Our Collection</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="images/banner1.png" class="card-img-top" alt="Product 1">
+            <div class="card-body">
+              <h5 class="card-title">Minimalist Dress</h5>
+              <p class="card-text">Elegant and simple design for everyday wear.</p>
+              <button class="btn btn-primary">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="images/banner2.png" class="card-img-top" alt="Product 2">
+            <div class="card-body">
+              <h5 class="card-title">Classic Shirt</h5>
+              <p class="card-text">Timeless piece that never goes out of style.</p>
+              <button class="btn btn-primary">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="images/banner3.png" class="card-img-top" alt="Product 3">
+            <div class="card-body">
+              <h5 class="card-title">Comfort Pants</h5>
+              <p class="card-text">Perfect fit with premium comfort.</p>
+              <button class="btn btn-primary">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop-section" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2>Ready to Shop?</h2>
+      <p class="mb-4">Browse our complete collection and find your perfect style.</p>
+      <button class="btn btn-primary btn-lg">Shop All Products</button>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Robe Fashion. All rights reserved.</p>
+      <p>Follow us on <a href="https://www.instagram.com/robefashion.in/" target="_blank" style="color: #f3c614;">Instagram</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Add hover effects to images
+    const bannerImages = document.querySelectorAll('.banner-image img');
+    bannerImages.forEach(img => {
+      img.addEventListener('mouseover', () => {
+        img.style.transform = 'scale(1.05)';
+        img.style.transition = 'transform 0.3s ease';
+      });
+      img.addEventListener('mouseout', () => {
+        img.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>
