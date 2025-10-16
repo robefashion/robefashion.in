@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop T-Shirts - Robe Fashion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #f8f9fa;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .products {
+      padding: 40px 0;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .offcanvas {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .offcanvas-body a {
+      font-family: 'Times New Roman', serif;
+    }
+
+    button {
+      background-color: #c0c0c0;
+      border: 2px inset #c0c0c0;
+      color: black;
+      font-family: sans-serif;
+      padding: 5px 10px;
+      border-radius: 13px;
+    }
+
+    button:active {
+      border: 2px outset #c0c0c0;
+    }
+  </style>
+</head>
+<body>
+  <header class="first">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="logo">ROBE</div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="new.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <a href="new.html" class="d-block mb-3">Home</a>
+        <a href="shop.html" class="d-block mb-3">Shop</a>
+        <a href="contactus.html" class="d-block mt-3">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Shop Our T-Shirts</h1>
+      <p>Find the perfect t-shirt for your style.</p>
+    </div>
+  </section>
+
+  <section id="products-section" class="products py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Our T-Shirt Collection</h2>
+      <div class="row">
+        <div class="col-6 mb-4">
+          <div class="card">
+            <a href="kochigang.html"><img src="images/kochi (1).png" class="card-img-top" alt="T-Shirt 3"></a>
+            <div class="card-body text-center">
+              <h5 class="card-title"><span style="font-weight: bold; text-transform: uppercase; color: #000000;">KOCHI GANG</span> Oversized Tee</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Robe Fashion. All rights reserved.</p>
+      <p>Follow us on <a href="https://www.instagram.com/robefashion.in/" target="_blank" style="color: #f3c614;">Instagram</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+ 

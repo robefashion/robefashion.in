@@ -1,54 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Robe Fashion</title>
-    <link rel="icon" type="image/x-icon" href="images/robeicon2.png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="base.css" />
-    <link rel="stylesheet" href="index.css" />
-    <style>
-      @media (max-width: 576px) {
-        main.container {
-          padding-left: 1rem !important;
-          padding-right: 1rem !important;
-        }
-        .d-grid {
-          grid-template-columns: 1fr !important;
-        }
-        .p-3 {
-          padding: 1rem !important;
-        }
-        h5.fw-bold {
-          font-size: 1.25rem !important;
-        }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Robe Fashion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .first {
+      height: 65vh;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f3c614, #d4aa00);
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 100%;
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .offcanvas {
+      background: rgba(112, 112, 112, 0.801);
+      backdrop-filter: blur(12px);
+    }
+
+    .offcanvas-body a {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: rgb(255, 255, 255);
+      font-size: 180%;
+      letter-spacing: -2px;
+      font-weight: lighter;
+      text-decoration: none;
+      border-bottom: 1px solid black;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #f3c614;
+    }
+
+    .first-content {
+      color: white;
+      text-align: left;
+      max-width: 600px;
+      margin-bottom: 100px;
+    }
+
+    .first-content h1 {
+      font-size: 3.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+    }
+
+    .first-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #f3c614;
+      padding: 12px 30px;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #d4aa00;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #f8f9fa;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    .banner-section {
+      padding: 40px 0;
+    }
+
+    .banner-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .banner-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .banner-text h2 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 15px;
+    }
+
+    .products h2 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-weight: normal;
+      letter-spacing: -1px;
+      font-size: 30px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .overlay {
+        padding: 20px 20px;
       }
-      /* Hover effect for audience breakdown images */
-      .d-grid img {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer;
+
+      .first-content h1 {
+        font-size: 2.5rem;
       }
-      .d-grid img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
-        z-index: 10;
-        position: relative;
+
+      .nav-links {
+        gap: 15px;
       }
-    </style>
-  </head>
-  <body class="d-flex flex-column min-vh-100">
-    <header>
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid d-flex align-items-center justify-content-between">
-          <div class="logo"></div>
-          <div class="navbar-collapse" id="navbarNav" style="display: flex !important;">
-            <ul class="navbar-nav ms-auto d-flex flex-row">
+
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Additional styles for aboutus content */
+    @media (max-width: 576px) {
+      main.container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+      .d-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .p-3 {
+        padding: 1rem !important;
+      }
+      h5.fw-bold {
+        font-size: 1.25rem !important;
+      }
+    }
+    /* Hover effect for audience breakdown images */
+    .d-grid img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .d-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+      z-index: 10;
+      position: relative;
+    }
+    .founder-link {
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+    .founder-link:hover {
+      text-decoration: underline;
+      color: #a0c6ff;
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+    .opacity-0 {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* Animation styles */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .bounce {
+      animation: bounce 1s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="first">
+    <div class="overlay">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="logo"> <img src="images/robe logo 2.png" alt="" width="150px"> </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="shop.html">Shop</a>
+                <a class="nav-link" href="new.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="aboutus.html">About</a>
+                <a class="nav-link" href="aboutus.html">Our Mission</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contactus.html">Contact</a>
@@ -57,36 +314,39 @@
           </div>
         </div>
       </nav>
-    </header>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header">
+          <img src="images/robe logo 2.png" width="100px">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+      <div class="offcanvas-body">
+        <a href="new.html" class="d-block mb-3">Home</a>
+        <a href="aboutus.html" class="d-block mb-3">Our Mission</a>
+        <a href="contactus.html" class="d-block mt-3">Contact</a>
+      </div>
+      </div>
+      <div class="first-content fade-in">
+        <h1>About Robe Fashion</h1>
+        <p>Learn about our story, vision, and the people behind the brand.</p>
+        <a href="#about-section" class="btn">Learn More</a>
+      </div>
+    </div>
+  </header>
 
-    <main class="container my-5 flex-grow-1">
+  <section id="about-section" class="products py-5">
+    <div class="container">
       <section class="mb-5 text-center">
         
-      </section>
-      <section class="mb-5 text-center">
-        <img src="images/robeheading.jpeg" alt="Robe Fashion Logo" class="img-fluid" style="max-height: 150px; margin-bottom: 1rem;" />
       </section>
 
       <section class="mb-5">
         <h2>Founders</h2>
-        <p style="font-family: Arial, sans-serif; color: black; font-weight: 500; line-height: 2;">
+        <p style="font-family: Arial, sans-serif; color: black; font-weight: 500; line-height: 1.8;">
           <a href="https://www.instagram.com/ahs.an.__/" target="_blank" class="text-decoration-none founder-link" style="color: black;">MUHAMMED AHSAN</a> <br>
           <a href="https://www.instagram.com/anfa1__/" target="_blank" class="text-decoration-none founder-link" style="color: black;">ANFAAL</a> <br>
           <a href="https://www.instagram.com/_jasim_mubaraq__/" target="_blank" class="text-decoration-none founder-link" style="color: black;">JASIM MUBARAQ</a>
         </p>
       </section>
-      <style>
-        .founder-link {
-          transition: color 0.3s ease, transform 0.3s ease;
-          display: inline-block;
-        }
-        .founder-link:hover {
-          text-decoration: underline;
-          color: #a0c6ff;
-          cursor: pointer;
-          transform: scale(1.1);
-        }
-      </style>
 
       <section class="mb-5">
         <h2>Our Story</h2>
@@ -144,44 +404,69 @@
           At Robe Fashion, our mission is to craft high-quality, urban-inspired clothing that celebrates individuality, fuels self-expression, and brings streetwear to life through bold design, ethical production, and unmatched comfort. We aim to build a community where fashion is fearless, accessible, and always authentic.
         </p>
       </section>
-    </main>
+    </div>
+  </section>
+  <section id="shop-section" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2>Ready to Shop?</h2>
+      <p class="mb-4">Browse our complete collection and find your perfect style.</p>
+     <a href="new.html"> <button class="btn btn-primary btn-lg">Shop All Products</button> </a>
+    </div>
+  </section>
 
-    <footer class="text-center mt-auto">
-      &copy; 2025 Robe Fashion. All rights reserved.
-    </footer>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Robe Fashion. All rights reserved.</p>
+      <p>Follow us on <a href="https://www.instagram.com/robefashion.in/" target="_blank" style="color: #f3c614;">Instagram</a></p>
+    </div>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      // Simple fade-in animation for sections on scroll to match aesthetics
-      document.addEventListener('DOMContentLoaded', () => {
-        const sections = document.querySelectorAll('section.mb-5');
-        const options = {
-          threshold: 0.1
-        };
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('fade-in');
-              observer.unobserve(entry.target);
-            }
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
           });
-        }, options);
-        sections.forEach(section => {
-          section.classList.add('opacity-0');
-          observer.observe(section);
-        });
+        }
       });
-    </script>
-    <style>
-      .opacity-0 {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      }
-      .fade-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
-    </style>
-  </body>
+    });
+
+    // Add hover effects to images
+    const bannerImages = document.querySelectorAll('.banner-image img');
+    bannerImages.forEach(img => {
+      img.addEventListener('mouseover', () => {
+        img.style.transform = 'scale(1.05)';
+        img.style.transition = 'transform 0.3s ease';
+      });
+      img.addEventListener('mouseout', () => {
+        img.style.transform = 'scale(1)';
+      });
+    });
+
+    // Simple fade-in animation for sections on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section.mb-5');
+      const options = {
+        threshold: 0.1
+      };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+      sections.forEach(section => {
+        section.classList.add('opacity-0');
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
 </html>
