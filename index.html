@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robe Fashion</title>
+   <link rel="icon" type="image/x-icon" href="images/robe logo 2.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .first {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .first video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 100%;
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .offcanvas {
+      background: rgba(112, 112, 112, 0.801);
+      backdrop-filter: blur(12px);
+    }
+
+
+    .offcanvas-body a {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: rgb(255, 255, 255);
+      font-size: 180%;
+      letter-spacing: -2px;
+      font-weight: lighter;
+      text-decoration: none;
+      border-bottom: 1px solid black;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #f3c614;
+    }
+
+    .first-content {
+      color: white;
+      text-align: left;
+      max-width: 600px;
+      margin-bottom: 100px;
+    }
+
+    .first-content h1 {
+      font-size: 3.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+    }
+
+    .first-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #f3c614;
+      padding: 12px 30px;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #d4aa00;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #f8f9fa;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    .banner-section {
+      padding: 40px 0;
+    }
+
+    .banner-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .banner-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .banner-text h2 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 15px;
+    }
+
+    .products h2 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-weight: normal;
+      letter-spacing: 5px;
+      font-size: 30px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .overlay {
+        padding: 20px 20px;
+      }
+
+      .first-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Animation styles */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .bounce {
+      animation: bounce 1s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="first">
+    <video autoplay muted loop playsinline>
+      <source src="videos/bannervideo1.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="logo"> <img src="images/robe logo 2.png" alt="" width="150px"> </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">Our Mission</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contactus.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header">
+          <img src="images/robe logo 2.png" width="100px">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+      <div class="offcanvas-body">
+        <a href="index.html" class="d-block mb-3">Home</a>
+        <a href="aboutus.html" class="d-block mb-3">Our Mission</a>
+        <a href="contactus.html" class="d-block mt-3">Contact</a>
+      </div>
+      </div>
+      <div class="first-content fade-in">
+        <h1>Elevate Your Style</h1>
+        <p>Discover timeless fashion tailored for modern elegance.</p>
+        <a href="#products-section" class="btn">Explore Collection</a>
+      </div>
+    </div>
+  </header>
+
+  
+
+  <section id="products-section" class="products py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">READY-TO-WEAR</h2>
+      <div class="row">
+        <div class="col-lg-3 col-6 mb-4">
+          <div class="card position-relative">
+            <a href="zenitsu.html" class="position-relative d-block">
+              <img src="images/zenitsu front.png" class="card-img-top" alt="T-Shirt 1" />
+              <span class="badge bg-dark position-absolute top-0 start-0 m-2">Sale</span>
+            </a>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <span style="font-family: 'Times New Roman', Times, serif; font-weight: normal; text-transform: uppercase; color: #000000;">ZENITSU <br> AGATSUMA</span>
+              </h5>
+              <p class="text-muted text-decoration-line-through mb-1">Rs. 999.00</p>
+              <p class="fw-bold">Rs. 599.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 mb-4">
+          <div class="card position-relative">
+            <a href="zoro.html" class="position-relative d-block">
+              <img src="images/roronoa.PNG" class="card-img-top" alt="T-Shirt 2" />
+              <span class="badge bg-dark position-absolute top-0 start-0 m-2">Sale</span>
+            </a>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <span style="font-family: 'Times New Roman', Times, serif; font-weight: normal; text-transform: uppercase; color: #000000;">RORONOA <br> ZORO</span>
+              </h5>
+              <p class="text-muted text-decoration-line-through mb-1">Rs. 999.00</p>
+              <p class="fw-bold">Rs. 599.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 mb-4">
+          <div class="card position-relative">
+            <a href="tanjiro.html" class="position-relative d-block">
+              <img src="images/tanjiro front.png" class="card-img-top" alt="T-Shirt 3" />
+              <span class="badge bg-dark position-absolute top-0 start-0 m-2">Sale</span>
+            </a>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <span style="font-family: 'Times New Roman', Times, serif; font-weight: normal; text-transform: uppercase; color: #000000;">Tanjiro <br> KAMADO </span>
+              </h5>
+              <p class="text-muted text-decoration-line-through mb-1">Rs. 999.00</p>
+              <p class="fw-bold">Rs. 599.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 mb-4">
+          <div class="card position-relative">
+            <a href="kochigang.html" class="position-relative d-block">
+              <img src="images/kochi gang4.png" class="card-img-top" alt="T-Shirt 4" />
+              <span class="badge bg-dark position-absolute top-0 start-0 m-2">Sale</span>
+            </a>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <span style="font-family: 'Times New Roman', Times, serif; font-weight: normal; text-transform: uppercase; color: #000000;">Kochi <br> Gang</span>
+              </h5>
+              <p class="text-muted text-decoration-line-through mb-1">Rs. 999.00</p>
+              <p class="fw-bold">Rs. 599.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 mb-4">
+          <div class="card position-relative">
+            <a href="onepiece.html" class="position-relative d-block">
+              <img src="images/one piece front.png" class="card-img-top" alt="T-Shirt 3" />
+              <span class="badge bg-dark position-absolute top-0 start-0 m-2">Sale</span>
+            </a>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <span style="font-family: 'Times New Roman', Times, serif; font-weight: normal; text-transform: uppercase; color: #000000;">one <br> piece </span>
+              </h5>
+              <p class="text-muted text-decoration-line-through mb-1">Rs. 999.00</p>
+              <p class="fw-bold">Rs. 599.00</p>
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-6 mb-4">
+          <div class="card position-relative">
+            <a href="zoro-white.html" class="position-relative d-block">
+              <img src="images/zoro front.png" class="card-img-top" alt="T-Shirt 3" />
+              <span class="badge bg-dark position-absolute top-0 start-0 m-2">Sale</span>
+            </a>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <span style="font-family: 'Times New Roman', Times, serif; font-weight: normal; text-transform: uppercase; color: #000000;"> RORONOA <br> Zoro </span>
+              </h5>
+              <p class="text-muted text-decoration-line-through mb-1">Rs. 999.00</p>
+              <p class="fw-bold">Rs. 599.00</p>
+            </div>
+          </div>
+      </div>
+       <div class="col-lg-3 col-6 mb-4">
+          <div class="card position-relative">
+            <a href="tiktok.html" class="position-relative d-block">
+              <img src="images/tiktok front.png" class="card-img-top" alt="T-Shirt 3" />
+              <span class="badge bg-dark position-absolute top-0 start-0 m-2">Sale</span>
+            </a>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <span style="font-family: 'Times New Roman', Times, serif; font-weight: normal; text-transform: uppercase; color: #000000;"> tiktok <br> ⭐ </span>
+              </h5>
+              <p class="text-muted text-decoration-line-through mb-1">Rs. 999.00</p>
+              <p class="fw-bold">Rs. 599.00</p>
+            </div>
+          </div>
+      </div> 
+       <div class="col-lg-3 col-6 mb-4">
+          <div class="card position-relative">
+            <a href="printyourdesign.html" class="position-relative d-block">
+              <img src="images/plain blue front.png" class="card-img-top" alt="T-Shirt 3" />
+              <span class="badge bg-danger position-absolute top- start-0 m-1">Exclusive</span>
+            </a>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <span style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: lighter ; text-transform: none; color: #000000;"> Print your Own <br> Design. </span>
+              </h5>
+              <p class="text-muted text-decoration-line-through mb-1">Rs. 999.00</p>
+              <p class="fw-bold">Rs. 599.00</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Minimalist Clothing for Every Occasion</h1>
+      <p>Discover timeless styles crafted with quality and care.</p>
+    </div>
+  </section>
+
+  <!-- Banner Grid Section -->
+  <section id="banner-sections" class="banner-sections my-5">
+    <div class="container">
+      <div class="banner-section row align-items-center my-4">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner2.png" alt="Latest Collection" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Discover Our Latest Collection</h2>
+          <p>Explore the newest trends in minimalist clothing, crafted with quality and care to suit every occasion. Our collection offers timeless styles that blend comfort and elegance seamlessly.</p>
+         <button class="btn btn-primary" onclick="window.location.href='#products-section'">Shop Now</button>
+        </div>
+      </div>
+
+      <div class="banner-section row align-items-center my-4 flex-md-row-reverse">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner3.png" alt="Quality Materials" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Quality You Can Trust</h2>
+          <p>Our garments are made from premium materials, ensuring durability and comfort. Experience the difference with our carefully curated selection designed to last and impress.</p>
+          <button class="btn btn-primary" onclick="window.location.href='aboutus.html'">Learn More</button>
+        </div>
+      </div>
+
+      <div class="banner-section row align-items-center my-4">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner4.webp" alt="Sustainability" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Style Meets Sustainability</h2>
+          <p>We are committed to sustainable fashion practices, using eco-friendly materials and ethical production methods. Join us in making a positive impact on the environment.</p>
+          <button class="btn btn-primary" onclick="window.location.href='aboutus.html'">Our Commitment</button>
+        </div>
+      </div>
+
+      <div class="banner-section row align-items-center my-4 flex-md-row-reverse">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner5.webp" alt="Exclusive Offers" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Exclusive Offers</h2>
+          <p>Sign up for our newsletter to receive exclusive discounts, early access to new arrivals, and special promotions tailored just for you.</p>
+          <button class="btn btn-primary" onclick="window.location.href='#newsletter'">Subscribe Now</button>
+        </div>
+      </div>
+
+      <div class="banner-section row align-items-center my-4">
+        <div class="banner-image col-md-6 p-3">
+          <img src="images/banner6.webp" alt="Community" class="img-fluid rounded" />
+        </div>
+        <div class="banner-text col-md-6 p-3">
+          <h2>Join Our Community</h2>
+          <p>Connect with like-minded fashion enthusiasts and stay updated on the latest trends, styling tips, and brand news through our social media channels.</p>
+          <button class="btn btn-primary" onclick="window.open('https://www.instagram.com/robefashion.in/', '_blank')">Follow Us</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop-section" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2>Ready to Shop?</h2>
+      <p class="mb-4">Browse our complete collection and find your perfect style.</p>
+     <a href="#products-section"> <button class="btn btn-primary btn-lg">Shop All Products</button> </a> 
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Robe Fashion. All rights reserved.</p>
+      <p>Follow us on <a href="https://www.instagram.com/robefashion.in/" target="_blank" style="color: #f3c614;">Instagram</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Add hover effects to images
+    const bannerImages = document.querySelectorAll('.banner-image img');
+    bannerImages.forEach(img => {
+      img.addEventListener('mouseover', () => {
+        img.style.transform = 'scale(1.05)';
+        img.style.transition = 'transform 0.3s ease';
+      });
+      img.addEventListener('mouseout', () => {
+        img.style.transform = 'scale(1)';
+      });
+    });
+
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Bounce animation for buttons on hover
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        btn.classList.add('bounce');
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.classList.remove('bounce');
+      });
+    });
+  </script>
+</body>
+</html>
